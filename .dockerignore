@@ -1,0 +1,15 @@
+.git
+.upstream
+source
+*.zip
+*.log
+.env
+**/node_modules
+**/target
+**/dist
+**/.git
+**/.env.local
+deploy/environments
+deploy-test-*
+backups
+verification-*

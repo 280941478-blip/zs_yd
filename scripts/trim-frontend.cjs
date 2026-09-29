@@ -1,0 +1,12 @@
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const ts=require(path.join(root,'frontend/node_modules/typescript'));
+const file=path.join(root,'frontend/src/router/modules/remaining.ts');
+let text=fs.readFileSync(file,'utf8');const src=ts.createSourceFile(file,text,ts.ScriptTarget.Latest,true);
+let array;function visit(node){if(ts.isVariableDeclaration(node)&&node.name.getText(src)==='remainingRouter')array=node.initializer;ts.forEachChild(node,visit);}visit(src);
+const keep=new Set(['/redirect','/','/user','/dict','/codegen','/job','/login','/sso','/social-login','/403','/404','/500','/:pathMatch(.*)*']);
+const entries=array.elements.filter(el=>{const p=el.properties.find(p=>p.name?.getText(src)==='path');return p && keep.has(p.initializer.text)});
+text=text.slice(0,array.getStart(src))+'[\n'+entries.map(e=>e.getText(src)).join(',\n')+'\n]'+text.slice(array.end);fs.writeFileSync(file,text);
+const helper=path.join(root,'frontend/src/utils/routerHelper.ts');let h=fs.readFileSync(helper,'utf8');
+h=h.replace("import.meta.glob('../views/**/*.{vue,tsx}')","import.meta.glob(['../views/example/**/*.{vue,tsx}', '../views/system/**/*.{vue,tsx}', '../views/infra/**/*.{vue,tsx}', '../views/Home/**/*.{vue,tsx}', '../views/Profile/**/*.{vue,tsx}', '../views/Login/**/*.{vue,tsx}', '../views/Error/**/*.{vue,tsx}', '../views/Redirect/**/*.{vue,tsx}', '../views/IFrame/**/*.{vue,tsx}'])");fs.writeFileSync(helper,h);
+console.log('Enabled only system/infra and essential frontend routes.');

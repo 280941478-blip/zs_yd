@@ -1,0 +1,14 @@
+FROM maven:3.9.9-eclipse-temurin-17 AS build
+WORKDIR /src
+COPY deploy/maven-settings.xml /root/.m2/settings.xml
+COPY backend/ ./
+RUN --mount=type=cache,target=/root/.m2/repository mvn -B -ntp verify
+
+FROM eclipse-temurin:17-jre-jammy
+RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/* && useradd -u 10001 -m app
+WORKDIR /app
+RUN mkdir -p /app/logs && chown -R app:app /app
+COPY --from=build --chown=app:app /src/yudao-server/target/yudao-server.jar /app/app.jar
+USER app
+EXPOSE 48080
+ENTRYPOINT ["java","-XX:MaxRAMPercentage=70","-Dfile.encoding=UTF-8","-jar","/app/app.jar"]

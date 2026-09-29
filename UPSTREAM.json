@@ -1,0 +1,6 @@
+{
+  "backend": {"repository":"https://github.com/yudaocode/yudao-boot-mini", "tag":"v2026.08(jdk17/21)", "commit":"f3b6a0a853f1d48f5ecc510038e3c9eab47ed4e2"},
+  "frontend": {"repository":"https://github.com/yudaocode/yudao-ui-admin-vue3", "tag":"v2026.08", "commit":"aab14fb0e74720dd09e964ae066f8bbde9f9012e"},
+  "license":"MIT; original LICENSE files retained in backend and frontend",
+  "project":"yudao-starter"
+}

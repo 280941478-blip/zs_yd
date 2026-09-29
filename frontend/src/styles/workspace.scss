@@ -1,0 +1,82 @@
+/* Shared workspace surfaces. Keep semantic status colors and component sizing intact. */
+:root:not(.dark) {
+  --el-text-color-primary: #25313d;
+  --el-text-color-regular: #475565;
+  --el-text-color-secondary: #75808d;
+  --el-border-color: #dce1e6;
+  --el-border-color-light: #e5e9ed;
+  --el-border-color-lighter: #edf0f2;
+  --el-fill-color-light: #f6f8fa;
+  --el-border-radius-base: 5px;
+  --el-box-shadow-light: 0 4px 16px rgb(25 40 55 / 6%);
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+.v-content-wrap {
+  border-radius: 8px;
+  .el-card__header {
+    padding: 18px 20px;
+  }
+}
+.el-table {
+  --el-table-header-bg-color: var(--el-fill-color-light);
+  --el-table-header-text-color: var(--el-text-color-regular);
+  th.el-table__cell {
+    font-weight: 600;
+  }
+  .el-table__cell {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+}
+.v-menu .el-menu--vertical:not(.el-menu--collapse) {
+  .el-menu-item,
+  .el-sub-menu__title {
+    margin: 4px 10px;
+    border-radius: 5px;
+    height: 44px;
+    line-height: 44px;
+  }
+}
+.v-tool-header {
+  box-shadow: none !important;
+}
+.v-tags-view {
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+html:not(.dark) .v-tags-view .v-tags-view__item.is-active {
+  color: var(--el-color-primary);
+  background: var(--el-color-primary-light-9);
+  border-color: var(--el-color-primary-light-8);
+  .v-tags-view__item--close span {
+    color: var(--el-color-primary) !important;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --app-content-padding: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-entry {
+    transition: none !important;
+  }
+}
+
+/* The dark palette must override menu variables set inline by the theme store. */
+html.dark {
+  --left-menu-bg-color: #1d242b !important;
+  --left-menu-bg-light-color: #252e37 !important;
+  --left-menu-bg-active-color: #304453 !important;
+  --left-menu-collapse-bg-active-color: #304453 !important;
+  --left-menu-text-color: #bac4ce !important;
+  --left-menu-text-active-color: #f1f5f8 !important;
+  --logo-title-text-color: #e4e9ed !important;
+  --left-menu-border-color: #343e48 !important;
+  --top-header-bg-color: #1d242b !important;
+  --top-header-text-color: #e4e9ed !important;
+  --top-header-hover-color: #29333d !important;
+  --top-tool-border-color: #343e48 !important;
+}

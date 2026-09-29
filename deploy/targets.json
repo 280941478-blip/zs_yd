@@ -1,0 +1,22 @@
+{
+  "registry": "registry.example.com/team",
+  "registryHost": "registry.example.com",
+  "registryCredentialId": "starter-registry",
+  "project": "yudao-starter",
+  "test": {
+    "host": "CHANGE_ME",
+    "user": "deploy",
+    "port": "22",
+    "directory": "/opt/yudao-starter-test",
+    "sshCredentialId": "starter-test-ssh",
+    "knownHostsCredentialId": "starter-known-hosts"
+  },
+  "prod": {
+    "host": "CHANGE_ME",
+    "user": "deploy",
+    "port": "22",
+    "directory": "/opt/yudao-starter-prod",
+    "sshCredentialId": "starter-prod-ssh",
+    "knownHostsCredentialId": "starter-known-hosts"
+  }
+}
