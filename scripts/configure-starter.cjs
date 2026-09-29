@@ -1,8 +1,8 @@
 const fs=require('node:fs');const path=require('node:path');const root=path.resolve(__dirname,'..');
 const write=(p,s)=>{fs.mkdirSync(path.dirname(path.join(root,p)),{recursive:true});fs.writeFileSync(path.join(root,p),s)};
-write('backend/yudao-server/src/main/resources/application.yaml',`spring:
+write('backend/cdzs-server/src/main/resources/application.yaml',`spring:
   application:
-    name: yudao-starter
+    name: cdzs-starter
   profiles:
     active: \${SPRING_PROFILES_ACTIVE:starter}
   main:
@@ -41,7 +41,7 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
     banner: false
-  type-aliases-package: \${yudao.info.base-package}.module.*.dal.dataobject
+  type-aliases-package: \${cdzs.info.base-package}.module.*.dal.dataobject
 mybatis-plus-join:
   banner: false
 easy-trans:
@@ -67,13 +67,13 @@ aj:
   captcha:
     cache-type: redis
     type: blockPuzzle
-    water-mark: Yudao Starter
+    water-mark: CDZS Starter
     interference-options: 0
     req-frequency-limit-enable: true
-yudao:
+cdzs:
   info:
     version: 1.0.0
-    base-package: cn.iocoder.yudao
+    base-package: cn.cdzs
   web:
     admin-ui:
       url: \${APP_PUBLIC_URL:http://localhost:8080}
@@ -95,16 +95,16 @@ yudao:
     path: /infra/ws
     sender-type: local
   swagger:
-    title: Yudao Starter
+    title: CDZS Starter
     description: 通用项目基础版
     version: 1.0.0
-    url: \${yudao.web.admin-ui.url}
+    url: \${cdzs.web.admin-ui.url}
     email: admin@example.invalid
     license: MIT
     license-url: https://opensource.org/licenses/MIT
   codegen:
-    base-package: cn.iocoder.yudao
-    db-schemas: \${DB_NAME:yudao_starter}
+    base-package: cn.cdzs
+    db-schemas: \${DB_NAME:cdzs_starter}
     front-type: 20
     vo-type: 10
     delete-batch-enable: true
@@ -141,7 +141,7 @@ wx:
     appid: starter-not-configured
     secret: starter-not-configured
 `);
-write('backend/yudao-server/src/main/resources/application-starter.yaml',`spring:
+write('backend/cdzs-server/src/main/resources/application-starter.yaml',`spring:
   config:
     import: "optional:file:../.env[.properties],optional:file:./.env[.properties]"
   autoconfigure:
@@ -158,9 +158,9 @@ write('backend/yudao-server/src/main/resources/application-starter.yaml',`spring
       strict: true
       datasource:
         master:
-          name: \${DB_NAME:yudao_starter}
-          url: jdbc:mysql://\${DB_HOST:127.0.0.1}:\${DB_PORT:13306}/\${DB_NAME:yudao_starter}?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
-          username: \${DB_USER:yudao}
+          name: \${DB_NAME:cdzs_starter}
+          url: jdbc:mysql://\${DB_HOST:127.0.0.1}:\${DB_PORT:13306}/\${DB_NAME:cdzs_starter}?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+          username: \${DB_USER:cdzs}
           password: \${DB_PASSWORD}
       druid:
         initial-size: 1
@@ -184,8 +184,8 @@ logging:
     name: \${LOG_PATH:./logs}/application.log
 `);
 // Replace upstream environment examples so changing profile never activates demo credentials.
-for(const profile of ['local','dev'])write('backend/yudao-server/src/main/resources/application-'+profile+'.yaml','spring:\n  config:\n    import: classpath:application-starter.yaml\n');
-write('frontend/.env',`VITE_APP_TITLE=Yudao Starter
+for(const profile of ['local','dev'])write('backend/cdzs-server/src/main/resources/application-'+profile+'.yaml','spring:\n  config:\n    import: classpath:application-starter.yaml\n');
+write('frontend/.env',`VITE_APP_TITLE=CDZS Starter
 VITE_PORT=8080
 VITE_OPEN=false
 VITE_APP_TENANT_ENABLE=true
@@ -211,7 +211,7 @@ VITE_DROP_CONSOLE=true
 VITE_APP_CAPTCHA_ENABLE=true
 `;
 for(const p of ['starter','deploy','local','env.local','dev','test','stage','prod'])write('frontend/.env.'+p,env);
-const pkgPath=path.join(root,'frontend/package.json');const pkg=JSON.parse(fs.readFileSync(pkgPath));pkg.name='yudao-starter-admin';pkg.private=true;pkg.packageManager='pnpm@10.33.0';pkg.scripts.dev='vite --mode starter';pkg.scripts.build='node --max_old_space_size=8192 ./node_modules/vite/bin/vite.js build --mode deploy';fs.writeFileSync(pkgPath,JSON.stringify(pkg,null,2)+'\n');
+const pkgPath=path.join(root,'frontend/package.json');const pkg=JSON.parse(fs.readFileSync(pkgPath));pkg.name='cdzs-starter-admin';pkg.private=true;pkg.packageManager='pnpm@10.33.0';pkg.scripts.dev='vite --mode starter';pkg.scripts.build='node --max_old_space_size=8192 ./node_modules/vite/bin/vite.js build --mode deploy';fs.writeFileSync(pkgPath,JSON.stringify(pkg,null,2)+'\n');
 let vite=fs.readFileSync(path.join(root,'frontend/vite.config.ts'),'utf8');vite=vite.replace('host: "0.0.0.0",','host: "127.0.0.1",\n            proxy: {\n                "/admin-api": { target: "http://127.0.0.1:48080", changeOrigin: true },\n                "/app-api": { target: "http://127.0.0.1:48080", changeOrigin: true },\n                "/infra/ws": { target: "ws://127.0.0.1:48080", ws: true }\n            },');write('frontend/vite.config.ts',vite);
 write('frontend/src/views/Home/Index.vue',`<template>
   <ContentWrap title="项目基础版">

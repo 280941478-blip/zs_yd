@@ -1,7 +1,7 @@
 services:
   livekit:
     image: docker.m.daocloud.io/livekit/livekit-server:latest
-    container_name: yudao-livekit-dev
+    container_name: cdzs-livekit-dev
     restart: unless-stopped
     # 端口映射模式
     # macOS / Windows 必走这种方式：Docker Desktop 4.34 以下没有 host network

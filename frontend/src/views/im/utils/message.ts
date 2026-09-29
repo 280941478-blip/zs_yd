@@ -18,7 +18,7 @@ export type { QuoteMessage } from '../home/types'
 // IM 消息 content 编解码 & 展示工具
 // ====================================================================
 // 约定：消息的 content 字段统一存 JSON 字符串，字段名、结构对齐后端
-// cn.iocoder.yudao.module.im.service.websocket.notification.message.* 下的 DTO。
+// cn.cdzs.module.im.service.websocket.notification.message.* 下的 DTO。
 // 各类消息 payload interface 字段对齐后端；解析统一用 parseMessage<T>，
 // 序列化直接 JSON.stringify(payload)。
 // ====================================================================

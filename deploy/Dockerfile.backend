@@ -8,7 +8,7 @@ FROM eclipse-temurin:17-jre-jammy
 RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/* && useradd -u 10001 -m app
 WORKDIR /app
 RUN mkdir -p /app/logs && chown -R app:app /app
-COPY --from=build --chown=app:app /src/yudao-server/target/yudao-server.jar /app/app.jar
+COPY --from=build --chown=app:app /src/cdzs-server/target/cdzs-server.jar /app/app.jar
 USER app
 EXPOSE 48080
 ENTRYPOINT ["java","-XX:MaxRAMPercentage=70","-Dfile.encoding=UTF-8","-jar","/app/app.jar"]

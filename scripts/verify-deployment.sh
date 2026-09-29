@@ -4,9 +4,9 @@ set -euo pipefail
 source_root=$(cd "$(dirname "$0")/.." && pwd -P)
 root="$source_root/verification-deploy-$(date +%s)-$$"
 version="verify-$(date +%s)-$$"; project="starter-$version"
-[[ -f "$source_root/backend/yudao-server/target/yudao-server.jar" && -f "$source_root/frontend/dist/index.html" ]] || exit 2
+[[ -f "$source_root/backend/cdzs-server/target/cdzs-server.jar" && -f "$source_root/frontend/dist/index.html" ]] || exit 2
 mkdir -p "$root/backend" "$root/frontend" "$root/releases/v1/deploy" "$root/releases/v2/deploy"
-cp "$source_root/backend/yudao-server/target/yudao-server.jar" "$root/backend/app.jar"
+cp "$source_root/backend/cdzs-server/target/cdzs-server.jar" "$root/backend/app.jar"
 cp -R "$source_root/frontend/dist/." "$root/frontend/"
 cp "$source_root/deploy/nginx.conf" "$root/frontend/default.conf"
 cat > "$root/backend/Dockerfile" <<'DOCKER'
@@ -27,7 +27,7 @@ umask 077
 cat > "$root/.env" <<ENV
 COMPOSE_PROJECT_NAME=$project
 DB_NAME=starter_verify
-DB_USER=yudao
+DB_USER=cdzs
 DB_PASSWORD=$password
 MYSQL_ROOT_PASSWORD=$password
 REDIS_PASSWORD=$password

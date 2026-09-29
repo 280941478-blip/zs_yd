@@ -34,10 +34,10 @@ Linux 执行节点标签设为 `docker`，安装 Git、Docker Engine（支持 Bu
 
 安装 Docker/Compose、Bash、flock（util-linux），给部署用户授权自己的部署目录和 Docker。服务器用独立只读凭据执行一次 `docker login`，用于拉取私有镜像。
 
-例如部署目录 `/opt/yudao-starter-test`：将项目 `.env.example` 和 scripts/init-env.cjs 按原目录关系放到临时准备目录，运行 `node scripts/init-env.cjs` 生成随机密码，然后把 `.env` 放到该部署目录，权限设为600。也可手动填写所有 CHANGE_ME 项。
+例如部署目录 `/opt/cdzs-starter-test`：将项目 `.env.example` 和 scripts/init-env.cjs 按原目录关系放到临时准备目录，运行 `node scripts/init-env.cjs` 生成随机密码，然后把 `.env` 放到该部署目录，权限设为600。也可手动填写所有 CHANGE_ME 项。
 
 调整：
-- COMPOSE_PROJECT_NAME：例如 yudao-starter-test。
+- COMPOSE_PROJECT_NAME：例如 cdzs-starter-test。
 - APP_PUBLIC_URL：实际外网访问地址（含 https 或 http）。
 - HTTP_BIND：同机已有 Nginx/1Panel 反向代理时保留127.0.0.1；需要对外监听时改为服务器绑定地址。
 - HTTP_PORT：与现有服务不冲突的端口。

@@ -10,7 +10,7 @@ import {
   splitRoutePath
 } from '@/utils/routeParams'
 
-const modules = import.meta.glob(['../views/example/**/*.{vue,tsx}', '../views/system/**/*.{vue,tsx}', '../views/infra/**/*.{vue,tsx}', '../views/Home/**/*.{vue,tsx}', '../views/Profile/**/*.{vue,tsx}', '../views/Login/**/*.{vue,tsx}', '../views/Error/**/*.{vue,tsx}', '../views/Redirect/**/*.{vue,tsx}', '../views/IFrame/**/*.{vue,tsx}'])
+const modules = import.meta.glob(['../views/business/**/*.{vue,tsx}', '../views/example/**/*.{vue,tsx}', '../views/system/**/*.{vue,tsx}', '../views/infra/**/*.{vue,tsx}', '../views/Home/**/*.{vue,tsx}', '../views/Profile/**/*.{vue,tsx}', '../views/Login/**/*.{vue,tsx}', '../views/Error/**/*.{vue,tsx}', '../views/Redirect/**/*.{vue,tsx}', '../views/IFrame/**/*.{vue,tsx}'])
 /**
  * 注册一个异步组件
  * @param componentPath 例:/bpm/oa/leave/detail

@@ -1,0 +1,3 @@
+cn.cdzs.framework.datasource.config.CdzsDataSourceAutoConfiguration
+cn.cdzs.framework.mybatis.config.CdzsMybatisAutoConfiguration
+cn.cdzs.framework.translate.config.CdzsTranslateAutoConfiguration

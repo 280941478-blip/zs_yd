@@ -1,0 +1,2 @@
+cn.cdzs.framework.quartz.config.CdzsQuartzAutoConfiguration
+cn.cdzs.framework.quartz.config.CdzsAsyncAutoConfiguration

@@ -75,7 +75,7 @@
 
 ② Spring Cloud 微服务架构：<https://cloud.iocoder.cn>
 
-![架构图](/.image/common/yudao-cloud-architecture.png)
+![架构图](/.image/common/cdzs-cloud-architecture.png)
 
 ## 内置功能
 

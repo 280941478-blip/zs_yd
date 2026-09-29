@@ -1,0 +1,2 @@
+cn.cdzs.framework.redis.config.CdzsRedisAutoConfiguration
+cn.cdzs.framework.redis.config.CdzsCacheAutoConfiguration

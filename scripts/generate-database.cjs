@@ -31,7 +31,7 @@ const seed=rows.filter(r=>
   (r.table==='system_oauth2_client' && r.data.id==='1')
 ).map(r=>r.raw);
 const custom=`
-UPDATE system_oauth2_client SET secret='INITIALIZATION_REQUIRED',name='Yudao Starter',logo='',description='',redirect_uris='[]',authorized_grant_types='["password","refresh_token"]',scopes='[]',authorities='[]' WHERE id=1;
+UPDATE system_oauth2_client SET secret='INITIALIZATION_REQUIRED',name='Cdzs Starter',logo='',description='',redirect_uris='[]',authorized_grant_types='["password","refresh_token"]',scopes='[]',authorities='[]' WHERE id=1;
 UPDATE system_menu SET visible=b'0' WHERE component IN ('infra/job/index','infra/druid/index','infra/server/index','infra/swagger/index') OR path LIKE 'http%';
 INSERT INTO system_tenant (id,name,contact_user_id,contact_name,package_id,expire_time,account_count,status,websites) VALUES (1,'默认租户',1,'管理员',0,'2099-12-31 23:59:59',10000,0,'[]');
 INSERT INTO system_dept (id,name,parent_id,sort,status,tenant_id) VALUES (100,'默认组织',0,0,0,1);
@@ -40,7 +40,7 @@ INSERT INTO system_users (id,username,password,nickname,dept_id,post_ids,status,
 INSERT INTO system_user_role (user_id,role_id,tenant_id) VALUES (1,1,1);
 INSERT INTO system_role_menu (role_id,menu_id,tenant_id) SELECT 1,id,1 FROM system_menu WHERE deleted=b'0';
 INSERT INTO infra_config (category,type,name,config_key,value,visible) VALUES ('system',1,'允许自行注册','system.user.register-enabled','false',b'0');
-INSERT INTO infra_file_config (id,name,storage,master,config) VALUES (1,'数据库文件存储',1,b'1','{"@class":"cn.iocoder.yudao.module.infra.framework.file.core.client.db.DBFileClientConfig","domain":"http://localhost:8080"}');
+INSERT INTO infra_file_config (id,name,storage,master,config) VALUES (1,'数据库文件存储',1,b'1','{"@class":"cn.cdzs.module.infra.framework.file.core.client.db.DBFileClientConfig","domain":"http://localhost:8080"}');
 CREATE TABLE starter_installation (id INT PRIMARY KEY, completed BIT NOT NULL DEFAULT b'0', initialized_at DATETIME NULL);
 INSERT INTO starter_installation (id,completed) VALUES (1,b'0');
 `;

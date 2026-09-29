@@ -1,4 +1,4 @@
-// Local test only: start backend with --yudao.captcha.enable=false; stop it after the test.
+// Local test only: start backend with --cdzs.captcha.enable=false; stop it after the test.
 // Does not print passwords or tokens and never sends SMS/email/notifications.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const env=Object.fromEntries(fs.readFileSync(path.join(__dirname,'../.env'),'utf8').split(/\r?\n/).filter(l=>l&&!l.startsWith('#')).map(l=>{const i=l.indexOf('=');return [l.slice(0,i),l.slice(i+1)];}));

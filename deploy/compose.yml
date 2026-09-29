@@ -30,7 +30,7 @@ services:
       timeout: 5s
       retries: 10
   backend:
-    image: ${BACKEND_IMAGE:-yudao-starter/backend:local}
+    image: ${BACKEND_IMAGE:-cdzs-starter/backend:local}
     build:
       context: ..
       dockerfile: deploy/Dockerfile.backend
@@ -62,7 +62,7 @@ services:
       start_period: 120s
       retries: 18
   frontend:
-    image: ${FRONTEND_IMAGE:-yudao-starter/frontend:local}
+    image: ${FRONTEND_IMAGE:-cdzs-starter/frontend:local}
     build:
       context: ..
       dockerfile: deploy/Dockerfile.frontend

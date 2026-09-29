@@ -1,0 +1,7 @@
+cn.cdzs.framework.apilog.config.CdzsApiLogAutoConfiguration
+cn.cdzs.framework.jackson.config.CdzsJacksonAutoConfiguration
+cn.cdzs.framework.swagger.config.CdzsSwaggerAutoConfiguration
+cn.cdzs.framework.web.config.CdzsWebAutoConfiguration
+cn.cdzs.framework.xss.config.CdzsXssAutoConfiguration
+cn.cdzs.framework.banner.config.CdzsBannerAutoConfiguration
+cn.cdzs.framework.encrypt.config.CdzsApiEncryptAutoConfiguration

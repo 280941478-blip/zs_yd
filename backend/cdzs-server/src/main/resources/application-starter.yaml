@@ -1,0 +1,53 @@
+spring:
+  flyway:
+    enabled: true
+    # A dedicated JDBC connection avoids Druid invalidating it when Flyway probes
+    # optional performance_schema capabilities that ordinary DB users cannot read.
+    url: ${spring.datasource.dynamic.datasource.master.url}
+    user: ${DB_USER:cdzs}
+    password: ${DB_PASSWORD}
+    locations: classpath:db/migration
+    clean-disabled: true
+    baseline-on-migrate: false
+    validate-on-migrate: true
+    out-of-order: false
+  config:
+    import: "optional:file:../.env[.properties],optional:file:./.env[.properties]"
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.quartz.QuartzAutoConfiguration
+  datasource:
+    druid:
+      web-stat-filter:
+        enabled: false
+      stat-view-servlet:
+        enabled: false
+    dynamic:
+      primary: master
+      strict: true
+      datasource:
+        master:
+          name: ${DB_NAME:cdzs_starter}
+          url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:13306}/${DB_NAME:cdzs_starter}?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+          username: ${DB_USER:cdzs}
+          password: ${DB_PASSWORD}
+      druid:
+        initial-size: 1
+        min-idle: 1
+        max-active: 20
+        validation-query: SELECT 1
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:16379}
+      password: ${REDIS_PASSWORD}
+      database: 0
+  boot:
+    admin:
+      client:
+        enabled: false
+      server:
+        enabled: false
+logging:
+  file:
+    name: ${LOG_PATH:./logs}/application.log

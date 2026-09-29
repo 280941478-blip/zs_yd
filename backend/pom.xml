@@ -3,35 +3,36 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>cn.iocoder.boot</groupId>
-    <artifactId>yudao</artifactId>
+    <groupId>cn.cdzs.boot</groupId>
+    <artifactId>cdzs</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
     <modules>
-        <module>yudao-module-example</module>
-        <module>yudao-dependencies</module>
-        <module>yudao-framework</module>
+        <module>cdzs-module-business</module>
+        <module>cdzs-module-example</module>
+        <module>cdzs-dependencies</module>
+        <module>cdzs-framework</module>
         <!-- Server 主项目 -->
-        <module>yudao-server</module>
+        <module>cdzs-server</module>
         <!-- 各种 module 拓展 -->
-        <module>yudao-module-system</module>
-        <module>yudao-module-infra</module>
-<!--        <module>yudao-module-member</module>-->
-<!--        <module>yudao-module-bpm</module>-->
-<!--        <module>yudao-module-report</module>-->
-<!--        <module>yudao-module-mp</module>-->
-<!--        <module>yudao-module-pay</module>-->
-<!--        <module>yudao-module-mall</module>-->
-<!--        <module>yudao-module-crm</module>-->
-<!--        <module>yudao-module-erp</module>-->
-<!--        <module>yudao-module-iot</module>-->
-<!--        <module>yudao-module-mes</module>-->
-<!--        <module>yudao-module-wms</module>-->
-<!--        <module>yudao-module-hrm</module>-->
-<!--        <module>yudao-module-fms</module>-->
-        <!--        <module>yudao-module-im</module>-->
+        <module>cdzs-module-system</module>
+        <module>cdzs-module-infra</module>
+<!--        <module>cdzs-module-member</module>-->
+<!--        <module>cdzs-module-bpm</module>-->
+<!--        <module>cdzs-module-report</module>-->
+<!--        <module>cdzs-module-mp</module>-->
+<!--        <module>cdzs-module-pay</module>-->
+<!--        <module>cdzs-module-mall</module>-->
+<!--        <module>cdzs-module-crm</module>-->
+<!--        <module>cdzs-module-erp</module>-->
+<!--        <module>cdzs-module-iot</module>-->
+<!--        <module>cdzs-module-mes</module>-->
+<!--        <module>cdzs-module-wms</module>-->
+<!--        <module>cdzs-module-hrm</module>-->
+<!--        <module>cdzs-module-fms</module>-->
+        <!--        <module>cdzs-module-im</module>-->
 <!-- 请参考 https://doc.iocoder.cn/ai/build/ 文档，完成 AI 模块的启动！！！ -->
-<!--        <module>yudao-module-ai</module>-->
+<!--        <module>cdzs-module-ai</module>-->
     </modules>
 
     <name>${project.artifactId}</name>
@@ -57,8 +58,8 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>cn.iocoder.boot</groupId>
-                <artifactId>yudao-dependencies</artifactId>
+                <groupId>cn.cdzs.boot</groupId>
+                <artifactId>cdzs-dependencies</artifactId>
                 <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>

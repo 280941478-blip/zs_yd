@@ -5,19 +5,19 @@
  * - constants.ts：协议枚举（与后端 enum 一一对应）+ 协议契约值（如 IM_AT_ALL_USER_ID）
  * - config.ts：可调节的策略数值，包括镜像后端 ImProperties 的默认值与纯前端 UI 阈值
  *
- * 标注「后端镜像」的常量与 yudao.im.* 配置默认值一致；调整后端配置时需同步修改这里
+ * 标注「后端镜像」的常量与 cdzs.im.* 配置默认值一致；调整后端配置时需同步修改这里
  */
 
 // ==================== 后端镜像（与 ImProperties 默认值对齐） ====================
 
-/** 群最大成员人数（对齐 yudao.im.group.max-member） */
+/** 群最大成员人数（对齐 cdzs.im.group.max-member） */
 export const GROUP_MAX_MEMBER = 500
 
-/** 单群管理员人数上限（对齐 yudao.im.group.admin-max-count） */
+/** 单群管理员人数上限（对齐 cdzs.im.group.admin-max-count） */
 export const GROUP_ADMIN_MAX_COUNT = 3
 
 /**
- * 是否启用私聊已读功能（对齐 yudao.im.message.private-read-enabled）
+ * 是否启用私聊已读功能（对齐 cdzs.im.message.private-read-enabled）
  *
  * 关闭后：进入私聊会话不再上报已读位置；气泡的「已读 / 未读」标签隐藏；
  * 管理后台私聊消息列表的「状态」列与详情中的状态字段隐藏
@@ -25,7 +25,7 @@ export const GROUP_ADMIN_MAX_COUNT = 3
 export const MESSAGE_PRIVATE_READ_ENABLED = true
 
 /**
- * 是否启用群聊已读功能（含群消息回执，对齐 yudao.im.message.group-read-enabled）
+ * 是否启用群聊已读功能（含群消息回执，对齐 cdzs.im.message.group-read-enabled）
  *
  * 关闭后：进入群会话不再上报已读位置；输入框的「发送回执消息」入口隐藏；
  * 群消息气泡上的「N 人已读」popover 隐藏；管理后台群消息列表的「状态」「回执」列与详情中对应字段隐藏
@@ -100,7 +100,7 @@ export const CONVERSATION_RECENT_FORWARD_MAX = 12
 
 /**
  * 振铃超时兜底；通话存活期间 timer 调用 noAnswerCallCheck 接口的间隔；
- * 实际超时阈值由后端 yudao.im.rtc.invite-timeout-minutes 决定，前端仅决定触发频率
+ * 实际超时阈值由后端 cdzs.im.rtc.invite-timeout-minutes 决定，前端仅决定触发频率
  */
 export const RTC_NO_ANSWER_CALL_CHECK_INTERVAL_MS = 60 * 1000
 

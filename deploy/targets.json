@@ -2,12 +2,12 @@
   "registry": "registry.example.com/team",
   "registryHost": "registry.example.com",
   "registryCredentialId": "starter-registry",
-  "project": "yudao-starter",
+  "project": "cdzs-starter",
   "test": {
     "host": "CHANGE_ME",
     "user": "deploy",
     "port": "22",
-    "directory": "/opt/yudao-starter-test",
+    "directory": "/opt/cdzs-starter-test",
     "sshCredentialId": "starter-test-ssh",
     "knownHostsCredentialId": "starter-known-hosts"
   },
@@ -15,7 +15,7 @@
     "host": "CHANGE_ME",
     "user": "deploy",
     "port": "22",
-    "directory": "/opt/yudao-starter-prod",
+    "directory": "/opt/cdzs-starter-prod",
     "sshCredentialId": "starter-prod-ssh",
     "knownHostsCredentialId": "starter-known-hosts"
   }

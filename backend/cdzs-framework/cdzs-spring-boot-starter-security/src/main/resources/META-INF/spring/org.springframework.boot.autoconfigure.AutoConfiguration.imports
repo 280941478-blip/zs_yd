@@ -1,0 +1,3 @@
+cn.cdzs.framework.security.config.CdzsSecurityAutoConfiguration
+cn.cdzs.framework.security.config.CdzsWebSecurityConfigurerAdapter
+cn.cdzs.framework.operatelog.config.CdzsOperateLogConfiguration
